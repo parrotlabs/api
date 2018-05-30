@@ -122,6 +122,7 @@ else
 end
 ```
 
+Para ejecutar el script en la terminal o consola escribir: ruby production_plan.rb
 
 Posibles errores:
 ```
