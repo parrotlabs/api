@@ -83,6 +83,7 @@ workstation_alias.- Alias de la estación donde se generará la producción.
 goal: meta a programar.
 part_name.- Nombre de la parte a programar, si no existe será creada.
 part_code.- Si la parte no existe en sistema debe indicarse un código (único), es un campo opcional si no se indica se toma por defecto el mismo nombre de la parte.  
+
 part_traceability_code.- Aplica lo mismo que part_code.
 batch_size.- Tamaño del bache producido, es un campo opcional, su valor por defecto es 1 y si la parte ya existe no es modificado.
 utility.- Valor de equivalencia de la parte en la estación, es un campo opcional, su valor por defecto es 1.
@@ -105,6 +106,7 @@ part_name = #### Nombre de la pieza a producir, debe coincidir con el sistema Mo
 
 # Se pueden agregar los demás campos opcionales en request_body
 request_body = {planned_date: planned_date, workstation_alias: workstation_alias, goal: production_goal, part_name: part_name }  
+
 # Request
 uri = URI("https://api.monitorapp.io/production_plans")
 form_data = URI.encode_www_form(request_body)
