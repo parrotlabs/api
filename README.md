@@ -83,7 +83,7 @@ Para ejecutar el script en la terminal o consola escribir: `ruby uptime.rb 2018-
 ## Programa de producción
 
 ### URL
-Método: **PATCH**
+Método: **PATCH**  
 URL: https://api.monitorapp.io/production_plans/
 
 ### Descripción
