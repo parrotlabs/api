@@ -11,8 +11,8 @@ En cada petición es obligatorio incluir en la cabecera el token de la empresa, 
 ## Uptimes
 
 ### URL
-Método: **GET**
-URL: https://api.monitorapp.io/uptimes/:date/:workstation_alias
+Método: **GET**  
+URL: https://api.monitorapp.io/uptimes/:date/:workstation_alias  
 Ejemplo todas las estaciones:  https://api.monitorapp.io/uptimes/2018-06-06/   
 Ejemplo una estación:  https://api.monitorapp.io/uptimes/2018-06-06/armadora
 
