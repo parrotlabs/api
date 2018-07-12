@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <title></title>
+   </head>
+   <body>
+      <button type="button" onclick="prepareProductionPlans()">Probar</button>
+   </body>
+</html>
+
+<script type="text/javascript">
+   function prepareProductionPlans(event){
+      // Arreglo de cada plan de producción a crear
+      var production_plan = Array()
+      // Por cada plan repetir esta línea
+      // 1
+      production_plan.push( {planned_date: "2018-07-12", workstation_alias: "Estacion 1", goal: 1, part_name: "PRUEBA123"} )
+      // 2
+      production_plan.push( {planned_date: "2018-07-12", workstation_alias: "Estacion 1", goal: 1, part_name: "PRUEBA1234"} )
+      // 3
+      production_plan.push( {planned_date: "2018-07-12", workstation_alias: "Estacion 1", goal: 1, part_name: "PRUEBA12345"} )
+
+      // Realizar peticiones
+      production_plan.forEach(function(item, index){
+         sendRequestadsdasdasdasdas(item, index);
+      });
+   }
+
+   function sendRequestadsdasdasdasdas(data, index){
+      // Reemplazar por el token de tu empresa
+      const token = "XXXXXXXXXXXXXXXXXXXXXXXXXXX";
+      // 
+      $.ajax({
+         url: "https://api.monitorapp.io/production_plans/",
+         beforeSend: function (request){
+            request.setRequestHeader('Content-Type', 'application/json');
+            request.setRequestHeader("Authorization", "Token " + token);
+         },
+         method: "PATCH",
+         data: JSON.stringify(data),
+         async: false,
+         processData:  false
+      })
+      .done((data)=>{
+         console.log("Petición " + index + " finalizada")
+         console.log(data);
+      })
+      .fail((jqXHR, textStatus, errorThrown)=>{
+         console.log("Petición " + index + " fallida")
+      })
+   }
+
+</script>
