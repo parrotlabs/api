@@ -167,13 +167,22 @@ Este servicio se encarga crear partes y asignarlas a una estación.
 
 Los parámetros que recibe el servicio son los siguientes:
 ```
+{
 name.- Nombre único de la parte.
 code.- código/folio único de la parte, si no se indica toma el mismo valor que name.
 traceability_code: código de trazabilidad, si no se indica toma el mismo valor que name.
 price.- Precio de la parte, si no se indica el valor por defecto es 0.
-workstations.- Arreglo con el nombre de las estaciones donde se genera la parte.  
+workstations.- Arreglo con la estructura especificada en la parte de abajo por acada estación.  
+}
 ``` 
-
+Cada estación debe tener el formato:
+```
+{
+alias.- Alias de la estación, es un dato obligatorio.
+batch_size.- Tamaño del bache dentro del rango 0-10000, si no se indica batch_size el valor por defecto queda en 1.
+utility: Valor de utilidad dentro del rango 0-1, si no se indica utility el valor por defecto queda en 1.
+}
+``` 
 > La respuesta del servidor sólo incluye dos campos {code: 0 = fallo/1 = ok, message: Error ocurrido en caso de code=0}
 
 ### Ejemplo Ruby
@@ -193,11 +202,11 @@ parts = []
 # Por cada parte nueva repetir esta linea
 
 # 1
-parts << { part: {name: 'Modelo a', code: 'code_modelo_a', traceability_code: 'tacea', price: 100, workstations: ['Maquina de Cafe'] } }
+parts << { part: {name: 'Modelo a', code: 'code_modelo_a', traceability_code: 'tacea', price: 100, workstations: [{alias: 'Maquina de Cafe', batch_size: 10}] } }
 # 2
 parts << { part: {name: 'Modelo b', code: 'code_modelo_b', traceability_code: 'taceb' } }
 # 3
-parts << { part: {name: 'Modelo c', code: 'code_modelo_c', traceability_code: 'tacec', workstations: ['Maquina de Cafe'] } }
+parts << { part: {name: 'Modelo c', code: 'code_modelo_c', traceability_code: 'tacec', workstations: [{alias: 'Maquina de Cafe', utility: 0.5}] } }
 
 # Realizar peticiones
 part_index = 0
@@ -232,4 +241,6 @@ Posibles errores:
 **Name has already been taken**.- El nombre no puede estar duplicado.
 **Code has already been taken**.- El código no puede estar duplicado.
 **Traceability code has already been taken**.- El código de trazabilidad no puede estar duplicado.
+**Batch size is not included in the list**.- El bache está fuera del rango 0-1000.
+**Utility is not included in the list**.- La utilidad está fuera del rango 0-1.
 ``` 
