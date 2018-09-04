@@ -241,6 +241,6 @@ Posibles errores:
 **Name has already been taken**.- El nombre no puede estar duplicado.
 **Code has already been taken**.- El código no puede estar duplicado.
 **Traceability code has already been taken**.- El código de trazabilidad no puede estar duplicado.
-**Batch size is not included in the list**.- El bache está fuera del rango 0-1000.
+**Batch size is not included in the list**.- El bache está fuera del rango 0-10000.
 **Utility is not included in the list**.- La utilidad está fuera del rango 0-1.
 ``` 
