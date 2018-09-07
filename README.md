@@ -180,7 +180,7 @@ Cada estación debe tener el formato:
 {
 alias.- Alias de la estación, es un dato obligatorio.
 batch_size.- Tamaño del bache dentro del rango 0-10000, si no se indica batch_size el valor por defecto queda en 1.
-utility: Valor de utilidad dentro del rango 0-1, si no se indica utility el valor por defecto queda en 1.
+utility: Valor de utilidad dentro del rango 0-10000, si no se indica utility el valor por defecto queda en 1.
 }
 ``` 
 > La respuesta del servidor sólo incluye dos campos {code: 0 = fallo/1 = ok, message: Error ocurrido en caso de code=0}
@@ -242,5 +242,5 @@ Posibles errores:
 **Code has already been taken**.- El código no puede estar duplicado.
 **Traceability code has already been taken**.- El código de trazabilidad no puede estar duplicado.
 **Batch size is not included in the list**.- El bache está fuera del rango 0-10000.
-**Utility is not included in the list**.- La utilidad está fuera del rango 0-1.
+**Utility is not included in the list**.- La utilidad está fuera del rango 0-10000.
 ``` 
